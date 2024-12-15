@@ -11,4 +11,23 @@ void menu() {
 }
 void read_menu(int menu_key) {
     printf("%d", menu_key);
+    switch(menu_key) {
+        case 1 : 
+            determinant_function();
+            break;
+
+        case 2 : 
+            transpose_function();
+            break;
+        
+        case 3 : 
+            adjugate_function();
+            break;
+        
+        case 4 : 
+            inverse_function();
+            break;
+        
+        default : printf("invalid command");
+    }
 }
