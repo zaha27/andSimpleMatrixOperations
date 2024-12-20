@@ -17,7 +17,9 @@ void read_menu(int menu_key) {
     scanf("%d", &menu_key);
     switch(menu_key) {
         case 1 : 
+            double det;
             determinant_function(dimension);
+            printf("The determinant is %d", det);
             break;
 
         case 2 : 
@@ -106,6 +108,15 @@ void adjugate_function(){ return;
 }
 void inverse_function(){ return;
 
+}
+
+void print_matrix(double **x, int dimension) {
+    for(int i = 0; i < dimension; i++) {
+        printf("\n");
+        for(int j = 0; j < dimension; j++) {
+            printf("%3.2lf", x[i][j]);
+        }
+    }
 }
 
 void free_matrix(double **matrix, int dimension) {
