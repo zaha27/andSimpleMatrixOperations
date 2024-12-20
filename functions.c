@@ -10,17 +10,21 @@ void menu() {
     printf("\t4.Inverse matrix - press 4\n");
 }
 void read_menu(int menu_key) {
+    menu();
+    scanf("%d", &menu_key);
+
+    printf("Introduce Dimensiunea matricei: ");
     int dimension = 0;
     scanf("%d", &dimension);
 
-    menu();
-    scanf("%d", &menu_key);
     switch(menu_key) {
-        case 1 : 
-            double det;
-            determinant_function(dimension);
-            printf("The determinant is %d", det);
+        case 1 : {
+            double det = 0;
+            det = determinant_function(dimension);
+            printf("The determinant is %.3lf", det);
             break;
+        }
+            
 
         case 2 : 
             transpose_function();
@@ -64,6 +68,7 @@ double determinant_function(int n) {
     int semn = 0; 
 
     for (int i = 0; i < n; ++i) {
+
         if (fabs(matrix[i][i]) < 1e-9) {
             int swap_row = -1;
             for (int k = i + 1; k < n; ++k) {
@@ -90,7 +95,10 @@ double determinant_function(int n) {
             }
         }
         det *= matrix[i][i];
-    }
+        printf("\n Pasul %d", i+1);
+        print_matrix(matrix, n);
+        printf("\n#################\n");
+        }
 
     if (semn % 2 != 0) {
         det = -det;
@@ -114,7 +122,7 @@ void print_matrix(double **x, int dimension) {
     for(int i = 0; i < dimension; i++) {
         printf("\n");
         for(int j = 0; j < dimension; j++) {
-            printf("%3.2lf", x[i][j]);
+            printf("%3.2lf ", x[i][j]);
         }
     }
 }

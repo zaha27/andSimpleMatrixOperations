@@ -4,6 +4,7 @@
 int main(void) {
     int menu_key = 0;
     read_menu(menu_key);
-
+    
+    return 0;
 
 }
